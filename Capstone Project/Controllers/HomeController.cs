@@ -23,7 +23,9 @@ namespace Capstone_Project.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+       
+
+        public IActionResult Budget()
         {
             return View();
         }
