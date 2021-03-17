@@ -23,12 +23,12 @@ namespace Capstone_Project.Controllers
             return View();
         }
 
-       
-
-        public IActionResult Budget()
-        {
+       public IActionResult Guide()
+       {
             return View();
-        }
+       }
+
+        
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
