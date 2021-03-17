@@ -27,10 +27,7 @@ namespace Capstone_Project.Controllers
        {
             return View();
        }
-        public IActionResult Budget()
-        {
-            return View();
-        }
+        
 
         
 
