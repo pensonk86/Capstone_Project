@@ -6,6 +6,81 @@
 
 <h1>View/Edit Monthly Finances</h1>
 <!DOCTYPE html>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                "50/30/20 Rule Data"
+            </div>
+            <div class="card-body">
+                <canvas class="my-4 h-25" id="pie"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script type="text/javascript">
+    var piechart = document.getElementById('pie').getContext('2d');
+    var mypiechart = new Chart(piechart, {
+        type: 'pie',
+        data: {
+            labels: ['Needs', 'Wants', 'Savings' , 'Debt'],
+            datasets: [{
+                label: 'Pie Chart',
+                data: [100, 200, 300, 400],
+                backgroundColor: 'rgba(6,128,249)',
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    })
+</script>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                "Financial Goals"
+            </div>
+            <div class="card-body">
+                <canvas class="my-4 h-25" id="line"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script type="text/javascript">
+    var linechart = document.getElementById('line').getContext('2d');
+    var mylinechart = new Chart(linechart, {
+        type: 'line',
+        data: {
+            labels: ['001', '002', '003'],
+            datasets: [{
+                label: 'line Chart',
+                data: [100, 200, 300],
+                backgroundColor: 'rgba(6,128,249)',
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    })
+</script>
 
 <head>
     <style>
@@ -16,15 +91,23 @@
             background-size: 1000%;
         }
     </style>
+
+
 </head>
 <body>
 
 </body>
 
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+
+
 <table class="table">
+
+
     <thead>
         <tr>
             <th>
@@ -61,4 +144,4 @@
         }
     </tbody>
 </table>
-    
+
