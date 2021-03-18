@@ -13,5 +13,6 @@ namespace Capstone_Project.Models
         public string Item { get; set; }
         public string Date { get; set; }
         public double Amount { get; set; }
+
     }
 }

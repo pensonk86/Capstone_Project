@@ -20,6 +20,7 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
 <script type="text/javascript">
+    
     var piechart = document.getElementById('pie').getContext('2d');
     var mypiechart = new Chart(piechart, {
         type: 'pie',
@@ -28,11 +29,23 @@
             datasets: [{
                 label: 'Pie Chart',
                 data: [100, 200, 300, 400],
-                backgroundColor: 'rgba(6,128,249)',
+                backgroundColor: [
+                    'rgba(255, 99, 132, 250)',
+                    'rgba(54, 162, 235, 250)',
+                    'rgba(255, 206, 86, 250)',
+                    'rgba(75, 192, 192, 250)'
+                    ],
+                
+               
+                
+                
+                
 
             }]
         },
+        
         options: {
+           
             scales: {
                 yAxes: [{
                     ticks: {
@@ -62,11 +75,17 @@
     var mylinechart = new Chart(linechart, {
         type: 'line',
         data: {
-            labels: ['001', '002', '003'],
+            labels: ['1 Month', '2 Month', '3 Months' , '4 Months' , '5  Months' , '6 Months' , '7 Months' , '8 Months' , '9 Months' , '10 Months' , '11 Months' , '1 Year'],
             datasets: [{
                 label: 'line Chart',
                 data: [100, 200, 300],
-                backgroundColor: 'rgba(6,128,249)',
+                backgroundColor: [
+                    
+                    'rgba(54, 162, 235, 250)',
+                    'rgba(255, 206, 86, 250)',
+                    'rgba(75, 192, 192, 250)'
+                ],
+
 
             }]
         },
