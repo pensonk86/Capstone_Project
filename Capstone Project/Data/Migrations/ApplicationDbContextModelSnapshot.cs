@@ -35,6 +35,9 @@ namespace Capstone_Project.Data.Migrations
                     b.Property<string>("Item")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Finance");

@@ -2,16 +2,12 @@
 
 namespace Capstone_Project.Data.Migrations
 {
-    public partial class initial2 : Migration
+    public partial class migrationupdate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
-                name: "Duedate",
-                table: "Finance");
-
             migrationBuilder.AddColumn<string>(
-                name: "Date",
+                name: "Type",
                 table: "Finance",
                 nullable: true);
         }
@@ -19,15 +15,8 @@ namespace Capstone_Project.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Date",
+                name: "Type",
                 table: "Finance");
-
-            migrationBuilder.AddColumn<int>(
-                name: "Duedate",
-                table: "Finance",
-                type: "int",
-                nullable: false,
-                defaultValue: 0);
         }
     }
 }

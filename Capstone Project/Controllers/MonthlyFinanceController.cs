@@ -86,7 +86,7 @@ namespace Capstone_Project.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Item,Date,Amount")] MonthlyFinance monthlyFinance)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Item,Date,Amount,Type")] MonthlyFinance monthlyFinance)
         {
             if (id != monthlyFinance.Id)
             {
