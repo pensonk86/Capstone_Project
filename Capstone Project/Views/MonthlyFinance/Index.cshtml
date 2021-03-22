@@ -1,11 +1,12 @@
 ﻿@model IEnumerable<Capstone_Project.Models.MonthlyFinance>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "";
 }
 
 <h1>View/Edit Monthly Finances</h1>
 <!DOCTYPE html>
+
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
@@ -91,14 +92,23 @@
         },
         options: {
             scales: {
-                yAxes: [{
+                yAxes:[{
                     ticks: {
                         beginAtZero: true
                     }
+
                 }]
             }
         }
+            
+        
+
     })
+       
+
+                   
+
+        
 </script>
 
 <head>
@@ -133,6 +143,7 @@
     tr:nth-child(odd){
         background-color: #eeeeee;
     }
+   
 
         
 
@@ -143,6 +154,7 @@
     
 
 </style>
+
 
 <table class="table">
 
@@ -195,5 +207,7 @@
     
     </tbody>
 
+
 </table>
+
 
