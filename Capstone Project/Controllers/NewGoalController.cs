@@ -10,22 +10,22 @@ using Capstone_Project.Models;
 
 namespace Capstone_Project.Controllers
 {
-    public class GoalController : Controller
+    public class NewGoalController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public GoalController(ApplicationDbContext context)
+        public NewGoalController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Goal
+        // GET: NewGoal
         public async Task<IActionResult> Index()
         {
-            return View(await _context.GoalModel.ToListAsync());
+            return View(await _context.NewGoal.ToListAsync());
         }
 
-        // GET: Goal/Details/5
+        // GET: NewGoal/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Capstone_Project.Controllers
                 return NotFound();
             }
 
-            var goalModel = await _context.GoalModel
+            var newGoal = await _context.NewGoal
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (goalModel == null)
+            if (newGoal == null)
             {
                 return NotFound();
             }
 
-            return View(goalModel);
+            return View(newGoal);
         }
 
-        // GET: Goal/Create
+        // GET: NewGoal/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Goal/Create
+        // POST: NewGoal/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Goal,Date,Amount,Monthly")] GoalModel goalModel)
+        public async Task<IActionResult> Create([Bind("Id,Goal,Amount,Monthly")] NewGoal newGoal)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(goalModel);
+                _context.Add(newGoal);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(goalModel);
+            return View(newGoal);
         }
 
-        // GET: Goal/Edit/5
+        // GET: NewGoal/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Capstone_Project.Controllers
                 return NotFound();
             }
 
-            var goalModel = await _context.GoalModel.FindAsync(id);
-            if (goalModel == null)
+            var newGoal = await _context.NewGoal.FindAsync(id);
+            if (newGoal == null)
             {
                 return NotFound();
             }
-            return View(goalModel);
+            return View(newGoal);
         }
 
-        // POST: Goal/Edit/5
+        // POST: NewGoal/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Goal,Date,Amount")] GoalModel goalModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Goal,Amount,Monthly")] NewGoal newGoal)
         {
-            if (id != goalModel.Id)
+            if (id != newGoal.Id)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Capstone_Project.Controllers
             {
                 try
                 {
-                    _context.Update(goalModel);
+                    _context.Update(newGoal);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!GoalModelExists(goalModel.Id))
+                    if (!NewGoalExists(newGoal.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Capstone_Project.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(goalModel);
+            return View(newGoal);
         }
 
-        // GET: Goal/Delete/5
+        // GET: NewGoal/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,30 +124,30 @@ namespace Capstone_Project.Controllers
                 return NotFound();
             }
 
-            var goalModel = await _context.GoalModel
+            var newGoal = await _context.NewGoal
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (goalModel == null)
+            if (newGoal == null)
             {
                 return NotFound();
             }
 
-            return View(goalModel);
+            return View(newGoal);
         }
 
-        // POST: Goal/Delete/5
+        // POST: NewGoal/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var goalModel = await _context.GoalModel.FindAsync(id);
-            _context.GoalModel.Remove(goalModel);
+            var newGoal = await _context.NewGoal.FindAsync(id);
+            _context.NewGoal.Remove(newGoal);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool GoalModelExists(int id)
+        private bool NewGoalExists(int id)
         {
-            return _context.GoalModel.Any(e => e.Id == id);
+            return _context.NewGoal.Any(e => e.Id == id);
         }
     }
 }

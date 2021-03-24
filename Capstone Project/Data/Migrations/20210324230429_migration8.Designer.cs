@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Capstone_Project.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210324173732_[migrationupdate2]")]
-    partial class migrationupdate2
+    [Migration("20210324230429_migration8")]
+    partial class migration8
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,30 +20,6 @@ namespace Capstone_Project.Data.Migrations
                 .HasAnnotation("ProductVersion", "3.1.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Capstone_Project.Models.GoalModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<double>("Amount")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Date")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Goal")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Monthly")
-                        .HasColumnType("float");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("GoalModel");
-                });
 
             modelBuilder.Entity("Capstone_Project.Models.MonthlyFinance", b =>
                 {
@@ -67,6 +43,27 @@ namespace Capstone_Project.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Finance");
+                });
+
+            modelBuilder.Entity("Capstone_Project.Models.NewGoal", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Goal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Monthly")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NewGoal");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

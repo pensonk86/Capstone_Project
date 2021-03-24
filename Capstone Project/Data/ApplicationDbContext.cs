@@ -14,6 +14,6 @@ namespace Capstone_Project.Data
             : base(options)
         {
         }
-        public DbSet<Capstone_Project.Models.GoalModel> GoalModel { get; set; }
+        public DbSet<Capstone_Project.Models.NewGoal> NewGoal { get; set; }
     }
 }
