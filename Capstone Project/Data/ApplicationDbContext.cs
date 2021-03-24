@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Capstone_Project.Models;
 
 namespace Capstone_Project.Data
 {
@@ -13,5 +14,6 @@ namespace Capstone_Project.Data
             : base(options)
         {
         }
+        public DbSet<Capstone_Project.Models.GoalModel> GoalModel { get; set; }
     }
 }
