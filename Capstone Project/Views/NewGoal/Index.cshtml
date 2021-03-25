@@ -1,10 +1,90 @@
 ﻿@model IEnumerable<Capstone_Project.Models.NewGoal>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Goals";
 }
 
-<h1>Index</h1>
+<h1>Create Your Goals</h1>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-header">
+                "Financial Goals"
+            </div>
+            <div class="card-body">
+                <canvas class="my-4 h-25" id="line"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+<script type="text/javascript">
+    var linechart = document.getElementById('line').getContext('2d');
+    var mylinechart = new Chart(linechart, {
+        type: 'line',
+        data: {
+            labels: ['1 Month', '2 Month', '3 Months', '4 Months', '5  Months', '6 Months', '7 Months', '8 Months', '9 Months', '10 Months', '11 Months', '1 Year'],
+            datasets: [{
+                label: 'line Chart',
+                data: [100, 200, 300],
+                backgroundColor: [
+
+                    'rgba(54, 162, 235, 250)',
+                    'rgba(255, 206, 86, 250)',
+                    'rgba(75, 192, 192, 250)'
+                ],
+
+
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+
+                }]
+            }
+        }
+
+
+
+    })
+
+
+
+
+
+
+
+</script>
+<head>
+    <style>
+
+        body {
+            background-image: url("https://i.ibb.co/TcMQjkM/All-white.jpg");
+            background-repeat: no-repeat;
+            background-size: 1000%;
+        }
+    </style>
+
+
+</head>
+<style>
+
+
+
+    th {
+        background-color: #009879;
+        color: #ffffff;
+    }
+
+    tr:nth-child(odd) {
+        background-color: #eeeeee;
+    }
+</style>
 
 <p>
     <a asp-action="Create">Create New</a>
