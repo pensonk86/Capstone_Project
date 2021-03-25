@@ -24,14 +24,15 @@ namespace Capstone_Project.Data
                 .HasData(
                 new IdentityRole
                 {
-                    Name = "Admin",
-                    NormalizedName = "Admin"
+                    Name = "New User",
+                    NormalizedName = "NewUser"
 
                 }
             );
                
                 
         }
+        public DbSet<Capstone_Project.Models.UserModel> UserModel { get; set; }
                 
                    
         

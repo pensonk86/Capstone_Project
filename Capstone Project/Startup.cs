@@ -1,6 +1,8 @@
+using Capstone_Project.ActionFilters;
 using Capstone_Project.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -11,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Capstone_Project
@@ -34,6 +37,12 @@ namespace Capstone_Project
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
+            services.AddScoped<ClaimsPrincipal>(s =>
+            s.GetService<IHttpContextAccessor>().HttpContext.User);
+            services.AddControllers(config =>
+            {
+                config.Filters.Add(typeof(GlobalRouting));
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
