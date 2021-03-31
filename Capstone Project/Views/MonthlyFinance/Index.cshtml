@@ -29,7 +29,8 @@
             labels: ['Needs', 'Wants', 'Savings', 'Debt'],
             datasets: [{
                 label: 'Pie Chart',
-                data: [100, 200, 300, 400],
+                data: [100.66, 25.98, 300, 70.46],
+
                 backgroundColor: [
                     'rgba(255, 99, 132, 250)',
                     'rgba(54, 162, 235, 250)',
@@ -56,6 +57,23 @@
             }
         }
     })
+    chart.Series["Default"].Label = "#PERCENT{P2}";
+    chart.Series["Default"].LegendText = "#VALX";
+    function addData(chart, data) {
+        chart.data.labels.push(document.getElementById("label").value);
+        chart.data.datasets.forEach((dataset) => {
+            dataset.data.push(document.getElementById("data").value * 1);
+        });
+        chart.update();
+    }
+
+    function removeData(chart) {
+        chart.data.labels.pop();
+        chart.data.datasets.forEach((dataset) => {
+            dataset.data.pop();
+        });
+        chart.update();
+    }
 </script>
 
 

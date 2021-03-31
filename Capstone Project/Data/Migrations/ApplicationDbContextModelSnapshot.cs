@@ -64,6 +64,26 @@ namespace Capstone_Project.Data.Migrations
                     b.ToTable("NewGoal");
                 });
 
+            modelBuilder.Entity("Capstone_Project.Models.UserModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdentityUserId");
+
+                    b.ToTable("UserModel");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -93,10 +113,10 @@ namespace Capstone_Project.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "4f700656-dbd3-434f-b5fe-4cc731626857",
-                            ConcurrencyStamp = "753fde40-e213-4be0-9c3a-e9e33733b80b",
-                            Name = "Admin",
-                            NormalizedName = "Admin"
+                            Id = "97f629b2-2dca-4f31-88e9-e95ef970d91b",
+                            ConcurrencyStamp = "776d7d20-b5ca-4844-a4d1-abc9f03ac964",
+                            Name = "New User",
+                            NormalizedName = "NewUser"
                         });
                 });
 
@@ -267,6 +287,13 @@ namespace Capstone_Project.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Capstone_Project.Models.UserModel", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

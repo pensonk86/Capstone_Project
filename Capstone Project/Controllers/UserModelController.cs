@@ -8,11 +8,12 @@ using Microsoft.EntityFrameworkCore;
 using Capstone_Project.Data;
 using Capstone_Project.Models;
 using Microsoft.AspNetCore.Authorization;
+using Capstone_Project.ActionFilters;
 
 namespace Capstone_Project.Controllers
 {
-    [Authorize(Roles = "Customer")]
-    
+    [Authorize(Roles = "New User")]
+    [ServiceFilter(typeof(GlobalRouting))]
     public class UserModelController : Controller
     {
         private readonly ApplicationDbContext _context;
